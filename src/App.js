@@ -4,7 +4,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 import { useReducer } from 'react';
 import reducer, { initialState } from './reducers';
-import { addOne , applyNumber } from './actions';
+import { addOne , applyNumber , changeOperation } from './actions';
 
 
 function App() {
@@ -12,14 +12,16 @@ function App() {
   
   const [state , dispatchState] = useReducer ( reducer,initialState);
 
-  
-
   // const onClick = ()=> {
   //     dispatchState(addOne());
   // }
 
+  const operationClick = (operation) => {
+    dispatchState(changeOperation(operation.target.value))
+  }
 
   const applyClick = (sayi) => {
+    
     dispatchState(applyNumber(parseInt(sayi.target.value)));
   }
 
@@ -64,9 +66,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"*"} />
-              <CalcButton value={"-"} />
-              <CalcButton value={"+"} />
+              <CalcButton value={"*"} onClick={operationClick}/>
+              <CalcButton value={"-"} onClick={operationClick}/>
+              <CalcButton value={"+"} onClick={operationClick}/>
             </div>
 
             <div className="row ce_button">
