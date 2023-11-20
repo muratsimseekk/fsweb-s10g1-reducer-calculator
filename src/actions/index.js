@@ -5,6 +5,8 @@ export const CHANGE_OPERATION = "CHANGE_OPERATION";
 
 export const CLEAR_DISPLAY = 'CLEAR_DISPLAY'
 
+export const TOTAL_MEMORY = 'TOTAL_MEMORY'
+
 export const addOne = () => {
   return ({ type: ADD_ONE });
 }
@@ -19,4 +21,8 @@ export const changeOperation =(operation) => {
 
 export const clearDisplay =() => {
   return ({type : CLEAR_DISPLAY })
+}
+
+export const totalMemory = () => {
+  return ({type : TOTAL_MEMORY}) 
 }
