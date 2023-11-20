@@ -4,6 +4,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 import { useReducer } from 'react';
 import reducer, { initialState } from './reducers';
+import { addOne , applyNumber } from './actions';
 
 
 function App() {
@@ -11,9 +12,16 @@ function App() {
   
   const [state , dispatchState] = useReducer ( reducer,initialState);
 
-  console.log(state);
+  
+
+  // const onClick = ()=> {
+  //     dispatchState(addOne());
+  // }
 
 
+  const applyClick = (sayi) => {
+    dispatchState(applyNumber(parseInt(sayi.target.value)));
+  }
 
   return (
     <div className="App">
@@ -38,27 +46,27 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1} />
-              <CalcButton value={2} />
-              <CalcButton value={3} />
+              <CalcButton value={1} onClick={applyClick}/>
+              <CalcButton value={2} onClick={applyClick}/>
+              <CalcButton value={3} onClick={applyClick}/>
             </div>
 
             <div className="row">
-              <CalcButton value={4} />
-              <CalcButton value={5} />
-              <CalcButton value={6} />
+              <CalcButton value={4} onClick={applyClick}/>
+              <CalcButton value={5} onClick={applyClick}/>
+              <CalcButton value={6} onClick={applyClick}/>
             </div>
 
             <div className="row">
-              <CalcButton value={7} />
-              <CalcButton value={8} />
-              <CalcButton value={9} />
+              <CalcButton value={7} onClick={applyClick}/>
+              <CalcButton value={8} onClick={applyClick}/>
+              <CalcButton value={9} onClick={applyClick}/>
             </div>
 
             <div className="row">
-              <CalcButton value={"+"} />
               <CalcButton value={"*"} />
               <CalcButton value={"-"} />
+              <CalcButton value={"+"} />
             </div>
 
             <div className="row ce_button">
