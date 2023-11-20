@@ -2,8 +2,70 @@ import React from 'react';
 
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
+import { useReducer } from 'react';
+import reducer, { initialState } from './reducers';
+
 
 function App() {
+
+  
+  const [state , dispatchState] = useReducer ( reducer,initialState);
+
+  console.log(state);
+
+// import { useEffect, useReducer, useState } from "react";
+
+// const studentReducer = (state, action) => {
+//   // if (action.type === "add_student") {
+//   //   return [...state, action.payload];
+//   // } else if (action.type === "delete_student") {
+//   //   return state.filter((s) => s.id !== action.payload);
+//   // } else {
+//   //   return state;
+//   // }
+
+//   switch (action.type) {
+//     case "add_student":
+//       return [...state, action.payload];
+//       break;
+
+//     case "delete_student":
+//       return state.filter((s) => s.id !== action.payload);
+//       break;
+
+//     case "edit_student":
+//       return state.map((s) => {
+//         if (s.id === action.payload.id) {
+//           return action.payload;
+//         }
+//         return s;
+//       });
+//       break;
+
+//     default:
+//       return state;
+//       break;
+//   }
+// };
+
+// const StudentsPage = () => {
+//   const [students, dispatchStudents] = useReducer(studentReducer, [
+//     { id: 1, name: "ali" },
+//     { id: 2, name: "Tarık" },
+//     { id: 3, name: "Hande" },
+//     { id: 4, name: "Burak" },
+//     { id: 5, name: "Yeliz" },
+//   ]);
+//   const [newStudent, setNewStudent] = useState({
+//     id: null,
+//     name: "",
+//   });
+
+//   useEffect(() => {
+//     console.log("students:", students);
+//   }, [students]);
+
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
