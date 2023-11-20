@@ -13,57 +13,6 @@ function App() {
 
   console.log(state);
 
-// import { useEffect, useReducer, useState } from "react";
-
-// const studentReducer = (state, action) => {
-//   // if (action.type === "add_student") {
-//   //   return [...state, action.payload];
-//   // } else if (action.type === "delete_student") {
-//   //   return state.filter((s) => s.id !== action.payload);
-//   // } else {
-//   //   return state;
-//   // }
-
-//   switch (action.type) {
-//     case "add_student":
-//       return [...state, action.payload];
-//       break;
-
-//     case "delete_student":
-//       return state.filter((s) => s.id !== action.payload);
-//       break;
-
-//     case "edit_student":
-//       return state.map((s) => {
-//         if (s.id === action.payload.id) {
-//           return action.payload;
-//         }
-//         return s;
-//       });
-//       break;
-
-//     default:
-//       return state;
-//       break;
-//   }
-// };
-
-// const StudentsPage = () => {
-//   const [students, dispatchStudents] = useReducer(studentReducer, [
-//     { id: 1, name: "ali" },
-//     { id: 2, name: "Tarık" },
-//     { id: 3, name: "Hande" },
-//     { id: 4, name: "Burak" },
-//     { id: 5, name: "Yeliz" },
-//   ]);
-//   const [newStudent, setNewStudent] = useState({
-//     id: null,
-//     name: "",
-//   });
-
-//   useEffect(() => {
-//     console.log("students:", students);
-//   }, [students]);
 
 
   return (
@@ -76,10 +25,10 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
 
-            <TotalDisplay value={0} />
+            <TotalDisplay value={state.total} />
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              <span id="operation"><b>Operation:</b> {state.operation}</span>
+              <span id="memory"><b>Memory:</b> {state.memory}</span>
             </div>
 
             <div className="row">
